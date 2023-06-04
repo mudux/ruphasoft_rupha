@@ -1,3 +1,7 @@
+import os
+
+HOME = os.environ.get('HOME')
+
 def before_install():
     print("Before Install")
     print("=====================================")
@@ -33,14 +37,14 @@ def before_install():
     </symbol>\
     </svg>"
     data = ""
-    with open("/home/$HOME/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r") as f:
-        with open("/home/$HOME/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "w") as nf:
+    with open("/home/"+HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r") as f:
+        with open("/home/"+HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "w") as nf:
             svgf = f.read()
             nf.write(svgf)
             data = svgf.replace("</svg>", replacetext)
             nf.close()
             f.close()
-    with open("/home/$HOME/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r+") as f:
+    with open("/home/"+HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r+") as f:
         f.write(data)
         f.close()
     print("=====================================")
