@@ -83,7 +83,7 @@ jobs:
           mysql --host 127.0.0.1 --port 3306 -u root -proot -e "SET GLOBAL collation_server = 'utf8mb4_unicode_ci'"
 
       - name: Install
-        working-directory: /home/frappe/frappe-bench
+        working-directory: /home/runner/frappe-bench
         run: |
           bench get-app ruphasoft_rupha $GITHUB_WORKSPACE
           bench setup requirements --dev
@@ -91,12 +91,14 @@ jobs:
           bench --site test_site install-app ruphasoft_rupha
           bench build
         env:
+          HOME: runner
           CI: 'Yes'
 
       - name: Run Tests
-        working-directory: /home/frappe/frappe-bench
+        working-directory: /home/runner/frappe-bench
         run: |
           bench --site test_site set-config allow_tests true
           bench --site test_site run-tests --app ruphasoft_rupha
         env:
+          HOME: runner
           TYPE: server
