@@ -85,18 +85,23 @@ jobs:
       - name: Install
         working-directory: /home/runner/frappe-bench
         run: |
+          export $HOME="$HOME"
+          echo "my user is $HOME"
           bench get-app ruphasoft_rupha $GITHUB_WORKSPACE
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
           bench --site test_site install-app ruphasoft_rupha
           bench build
         env:
+          HOME: runner
           CI: 'Yes'
 
       - name: Run Tests
         working-directory: /home/runner/frappe-bench
         run: |
+          export $HOME="$HOME"
           bench --site test_site set-config allow_tests true
           bench --site test_site run-tests --app ruphasoft_rupha
         env:
+          HOME: runner
           TYPE: server
