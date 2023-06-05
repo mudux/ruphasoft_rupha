@@ -63,13 +63,13 @@ app_license = "MIT"
 # Installation
 # ------------
 
-before_install = "ruphasoft_rupha.install.before_install"
+# before_install = "ruphasoft_rupha.install.before_install"
 # after_install = "ruphasoft_rupha.install.after_install"
 
 # Uninstallation
 # ------------
 
-before_uninstall = "ruphasoft_rupha.uninstall.before_uninstall"
+# before_uninstall = "ruphasoft_rupha.uninstall.before_uninstall"
 # after_uninstall = "ruphasoft_rupha.uninstall.after_uninstall"
 
 # Desk Notifications
