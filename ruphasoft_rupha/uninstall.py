@@ -8,8 +8,8 @@ def before_uninstall():
     print("=====================================")
     print("removing icons from icons.svg")
     try:
-        os.remove(HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg")
-        os.rename(HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "/home/"+HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg")
+        os.remove(str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg")
+        os.rename(str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "/home/"+str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg")
     except Exception as e:
         print("============ERROR==================")
         print(e)

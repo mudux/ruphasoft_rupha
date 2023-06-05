@@ -39,14 +39,14 @@ def before_install():
         </symbol>\
         </svg>"
         data = ""
-        with open(HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r") as f:
-            with open(HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "w") as nf:
+        with open(str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r") as f:
+            with open(str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.bak.svg", "w") as nf:
                 svgf = f.read()
                 nf.write(svgf)
                 data = svgf.replace("</svg>", replacetext)
                 nf.close()
                 f.close()
-        with open(HOME+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r+") as f:
+        with open(str(HOME)+"/frappe-bench/apps/frappe/frappe/public/icons/timeless/icons.svg", "r+") as f:
             f.write(data)
             f.close()
     except Exception as e:
